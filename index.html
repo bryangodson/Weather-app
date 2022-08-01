@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Bryan Weather || Bryan Group Of Companies </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Papa Kwaku Danquah,Bryan Godson Danquah">
+    <meta name="description" content=" Find Weather information of cities||Bryan Media" />
+    <meta name="keywords" content="Bryan Media, Bryan Godson Danquah, weather information, weather station, current weather information">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      
+    <style type="text/css" media="all">
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Open+Sans:wght@300&family=Poppins:wght@100;300&family=Roboto:wght@100;300&family=Ubuntu:wght@300&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+
+
+        }
+        body{
+            height: 130vh;
+            width: 100vw;
+            font-family: Lato,"Sans-Serif";
+
+        }
+        .main {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .img {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+transition: .3s ease;
+            z-index: -39;
+            filter: blur(6px);
+        }
+        .weather {
+            display: flex;
+
+            align-items: center;
+            background: rgba(0,0,0,0.1);
+            width: 90%;
+            border-radius: 0px;
+            height: 600px;
+            flex-direction: column;
+            position: absolute;
+           
+        }
+        #particles-js{
+            
+            
+         height: 130vh;
+            width: 100vw;
+        position: absolute;
+        top: 0;
+        right: 0;
+   z-index: -30;
+
+        }
+
+        .weather section {
+
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding-left: 20px;
+        }
+        .weather section input {
+            width: 80%;
+            padding: 15px 5px;
+            text-align: center;
+            outline: none;
+            border: none;
+            color: #000;
+            background: none;
+            font-family: Lato ,Sans-Serif;
+            
+            
+
+
+        }
+        .button {
+            width: 30px;
+          height: 30;
+            padding: 20px;
+            position: absolute;
+            right:0px;
+            top: 0px;
+            outline: none;
+            background: #0f3f6f;
+            border: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0% 0 0 0%;
+
+        }
+        .button .fa {
+            color: #fff;
+            font-size: 13px;
+
+        }
+        ::placeholder {
+            font-size: 10px;
+            font-family: Lato ,"Sans-Serif";
+        }
+        .cities {
+            margin-top: 30px;
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-left: 0px;
+            line-height: 40px;
+
+
+        }
+        .cities h3 {
+            padding-left: 8px;
+            color: #0f3f6f;
+
+        }
+        .weathD h3{
+            
+            color: #0f3f6f;
+            
+        }
+        .cities section {
+            background: rgba(255,255,255,0.2);
+            width: 100%;
+            margin-top: 4px;
+            padding-left: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+
+        }
+
+        .cities section .fa {
+            font-size: 10px;
+            color: #fff;
+            background: #0f3f6f;
+            height: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        hr {
+            opacity: 0.2;
+            width: 70%;
+            margin: 0 auto;
+
+
+        }
+        .main span {
+            position: absolute;
+            bottom: 8px;
+            text-align: center;
+            width: 100%;
+            font-size: 8px;
+        }
+        .weathD {
+            margin-top: 30px;
+            display: flex;
+            width: 100%; 
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-left: 0px;
+            line-height: 40px;
+
+
+        }
+        .weathD section {
+
+
+            width: 100%;
+            margin-top: 4px;
+            padding-left: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            padding-right: 30px;
+
+        }
+        .weathD section p:nth-child(2){
+            
+            font-size: 18px;
+            font-family: Ubuntu,Sans-Serif;
+            font-weight: 500;
+            color: #0f3f6f;
+        }
+        .weather .but{
+            
+            border: 0;
+            padding:10px 8px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: #0f3f6f;
+            color: #fff;
+            font-family: Lato ,Sans-Serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js">
+        
+    </div>
+    <div class="main">
+        <img src="" alt="" class="img" />
+        <div class="weather">
+            <section>
+ <input type="text" placeholder="Search By City..." class="inputValue" id="inputValue"/>
+     <button class="button"> <i class="fa fa-search"></i></button>
+
+              
+                
+            </section>
+            <hr />
+            <div class="cities">
+           <h3>Description</h3>
+
+                <section class="des">
+                    <p>
+                        General weather description
+                    </p>
+
+                </section>
+
+             
+
+
+            </div>
+            <br />
+            <hr />
+            <div class="weathD">
+                <section>
+                    
+
+                <h3>Weather Details  </h3>
+                                   <i class="fa fa-cloud" style="color:#fff;padding-right:0px"></i>
+                                </section>
+                <section>
+                    <p >
+                        Temperature
+                    </p>
+                    <p class="temp">
+                        ...
+                    </p>
+                </section>
+                <section>
+                    <p>
+                        Humidity
+                    </p>
+                    <p class="humid">
+                        ...
+                    </p>
+
+                </section>
+
+                <section>
+                    <p>
+                        Wind Speed
+                    </p>
+                    <p class="wind">
+                        ...
+                    </p>
+                </section>
+                <section>
+                    <p>
+                        Feels like
+                    </p>
+                    <p class="feels">
+                        ...
+                    </p>
+                </section>
+                                <section>
+                    <p>
+                      Pressure
+                    </p>
+                    <p class="pressure">
+                        ...
+                    </p>
+                </section>
+
+            </div>
+            <button class="but">Click For GPS Forecast</button>
+        </div>
+        <span>&copy Bryan Media</span>
+    </div>
+    <script type="text/javascript" charset="utf-8" src="./weather.js">
+ 
+</script>
+<script src="./particles.js" type="text/javascript" charset="utf-8"></script>
+<script src="app.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
